@@ -26,7 +26,7 @@ public:
 
     cv::Point3f cam2abs(const cv::Point3f& camPoint, const RobotInfo& robot) {
         getRotX(-robot.ptz_pitch);
-        getRotY(-robot.ptz_pitch);
+        getRotY(-robot.ptz_yaw);
         getRotZ(0);
         pointMat << camPoint.x, camPoint.y, camPoint.z, 1;
         auto result =   trans*RotY*RotX*RotZ*pointMat; // y x z

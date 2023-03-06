@@ -99,13 +99,16 @@ void ArmorDetect::draw_target(const OvInference::Detection &obj, cv::Mat &src) {
 
 
 void ArmorDetect::imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr & image_msg){
+
+
     try {
         //log info
         // RCLCPP_INFO(this->get_logger(), "get raw image");
 
         //subscribe camera and camera info
         auto src = cv_bridge::toCvShare(image_msg, "bgr8")->image;
-
+        double time_stamp = double(image_msg->header.stamp.sec)/1000.0;
+        // std::cout<<"time "<<time_stamp<<"\r\n";
         std::vector<OvInference::Detection> results;
         ovinfer->infer(src, results);
         RobotInfo robot_ = {'a',0,0,0};
@@ -118,12 +121,12 @@ void ArmorDetect::imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr & 
         draw_target(final_obj,src);
         cv::Point3f cam_ = cv::Point3f(0,0,0);
         cam_ = pnpsolver->get_cam_point(final_obj);
-        if(final_obj.class_id > -1){
-            std::cout<< "cam_ point "<<cam_<<std::endl;
-        }
+        // if(final_obj.class_id > -1){
+        //     std::cout<< "cam_ point "<<cam_<<std::endl;
+        // }
         
         auto campoint_msg_ = my_interfaces::msg::Armor();
-        campoint_msg_.time_stamp = 0;
+        campoint_msg_.time_stamp = time_stamp;
         campoint_msg_.id = final_obj.class_id;
         campoint_msg_.cam_point.x = cam_.x;
         campoint_msg_.cam_point.y = cam_.y;

@@ -7,7 +7,7 @@
 #include "my_interfaces/msg/send_data.hpp"
 #include "anglesolver.hpp"
 #include "../../../include/data_type.h"
-
+#include "kalmanFilter.hpp"
 class Predictor : public rclcpp::Node 
 {
 private:
@@ -15,7 +15,12 @@ private:
     double pitch_last, yaw_last, dis_last;
     int id_last;
     RobotInfo robot_;
+    float evaluate_threshold = 1000.0;
+    bool inited = false;
+    std::vector<Armor> armor_seq;
+    Armor current_armor;
     std::unique_ptr<AngleSolver> anglesolver;
+     std::shared_ptr<KalmanFilter> kf;
     rclcpp::Subscription<my_interfaces::msg::Armor>::SharedPtr armor_sub_;
     rclcpp::Publisher<my_interfaces::msg::SendData>::SharedPtr data_pub_;
     rclcpp::Subscription<my_interfaces::msg::RobotStatus>::SharedPtr robot_sub_;
@@ -26,4 +31,7 @@ public:
 
     explicit Predictor(const std::string& node_name);
     ~Predictor()=default;
+
+    void reset();
+    cv::Point3f predict(const Armor& armor);
 };

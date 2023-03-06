@@ -6,12 +6,14 @@
 #include "opencv2/highgui/highgui.hpp"
 #include <camera_info_manager/camera_info_manager.hpp>
 #include <sensor_msgs/msg/camera_info.hpp>
+#include "../../include/Tictoc.hpp"
 
 class Camera : public rclcpp::Node{
 
 public:
     explicit Camera(const std::string& name, const int image_width, const int image_height) : Node(name)
     {
+        tic = std::make_unique<Tictok>();
         RCLCPP_INFO(this -> get_logger(),"This is %s.",name.c_str());
         width = image_width;
         height = image_height;
@@ -62,6 +64,7 @@ public:
     
     camera_config cam0_info;          //struct
     std::unique_ptr<MercureDriver> cam0;
+    std::unique_ptr<Tictok> tic;
     sensor_msgs::msg::Image image_msg_;
     image_transport::CameraPublisher camera_pub_;
     sensor_msgs::msg::CameraInfo camera_info_msg_;
@@ -78,7 +81,8 @@ public:
                 VxInt32 DxStatus = DxRaw8toRGB24(const_cast<void *>(pFrameBuffer->pImgBuf), image_msg_.data.data(), pFrameBuffer->nWidth,
                                                  pFrameBuffer->nHeight, cvtype, nBayerType, false);
                 if(DxStatus == DX_OK){
-                    camera_info_msg_.header.stamp= image_msg_.header.stamp = this->now(); //TODO :check if use or not
+                    
+                    camera_info_msg_.header.stamp.sec= image_msg_.header.stamp.sec = tic->this_time(); //TODO :check if use or not
                     image_msg_.height = pFrameBuffer->nHeight;
                     image_msg_.width = pFrameBuffer->nWidth;
                     image_msg_.step = pFrameBuffer->nWidth * 3;             //three channels 

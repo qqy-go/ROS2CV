@@ -1,0 +1,13 @@
+%YAML:1.0
+sentry_up:
+  pitch_diff: 0
+  yaw_diff: 0
+  Q00: 0.1
+  Q11: 0.1
+  Q22: 1
+  Q33: 0.1
+  Q44: 0.1
+  Q55: 1
+  R00: 1
+  R11: 1
+  R22: 10

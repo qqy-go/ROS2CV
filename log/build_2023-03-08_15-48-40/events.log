@@ -1,0 +1,190 @@
+[0.000000] (-) TimerEvent: {}
+[0.000679] (-) JobUnselected: {'identifier': 'camera'}
+[0.000713] (-) JobUnselected: {'identifier': 'detector'}
+[0.000736] (-) JobUnselected: {'identifier': 'my_interfaces'}
+[0.000756] (-) JobUnselected: {'identifier': 'robot_startup'}
+[0.000773] (-) JobUnselected: {'identifier': 'serial'}
+[0.000793] (predictor) JobQueued: {'identifier': 'predictor', 'dependencies': OrderedDict()}
+[0.000814] (predictor) JobStarted: {'identifier': 'predictor'}
+[0.018743] (predictor) JobProgress: {'identifier': 'predictor', 'progress': 'cmake'}
+[0.021043] (predictor) Command: {'cmd': ['/usr/bin/cmake', '/home/quonone/workspace/dev_ws/src/predictor', '-DCMAKE_INSTALL_PREFIX=/home/quonone/workspace/dev_ws/src/install/predictor'], 'cwd': '/home/quonone/workspace/dev_ws/src/build/predictor', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en_US:en'), ('USER', 'quonone'), ('LC_TIME', 'zh_CN.UTF-8'), ('LIBVA_DRIVERS_PATH', '/opt/intel/mediasdk/lib64'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/120/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces/lib:/opt/intel/openvino2022/tools/compile_tool:/opt/intel/openvino2022/runtime/3rdparty/hddl/lib:/opt/intel/openvino2022/runtime/lib/intel64:/opt/intel/openvino2022/tools/compile_tool:/opt/intel/openvino2022/runtime/3rdparty/hddl/lib:/opt/intel/openvino2022/runtime/lib/intel64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HDDL_INSTALL_DIR', '/opt/intel/openvino2022/runtime/3rdparty/hddl'), ('HOME', '/home/quonone'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('TERM_PROGRAM_VERSION', '1.76.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('INTEL_OPENVINO_DIR', '/opt/intel/openvino2022'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/120/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/120/usr/share/code/code'), ('MANAGERPID', '1527'), ('SYSTEMD_EXEC_PID', '1844'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3512'), ('COLCON_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'quonone'), ('JOURNAL_STREAM', '8:33220'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/intel/openvino2022/runtime/lib/intel64/pkgconfig:/opt/intel/openvino2022/runtime/lib/intel64/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'quonone'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/quonone/.local/bin:/opt/ros/humble/bin:/home/quonone/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/pc:@/tmp/.ICE-unix/1822,unix/pc:/tmp/.ICE-unix/1822'), ('INVOCATION_ID', '9f71e84f3a39490681b19d24a1434238'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('BAMF_DESKTOP_FILE_HINT', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('LIBVA_DRIVER_NAME', 'iHD'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cb1d70c9f.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/120/usr/share/glib-2.0/schemas'), ('AMENT_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('ngraph_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('InferenceEngine_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/quonone/workspace/dev_ws/src/build/predictor'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces/local/lib/python3.10/dist-packages:/opt/intel/openvino2022/python/python3.10:/opt/intel/openvino2022/python/python3:/opt/intel/openvino2022/python/python3.10:/opt/intel/openvino2022/python/python3:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('OpenVINO_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('CMAKE_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces:/opt/ros/humble')]), 'shell': False}
+[0.031799] (predictor) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.098189] (-) TimerEvent: {}
+[0.165591] (predictor) StdoutLine: {'line': b'-- Found rclcpp: 16.0.3 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.188022] (predictor) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.4 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.189448] (predictor) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.4 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.193651] (predictor) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.4 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.198266] (-) TimerEvent: {}
+[0.201454] (predictor) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.216766] (predictor) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.264145] (predictor) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.265101] (predictor) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.2 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.298356] (-) TimerEvent: {}
+[0.354577] (predictor) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.398445] (-) TimerEvent: {}
+[0.475557] (predictor) StdoutLine: {'line': b'-- Found my_interfaces: 0.0.0 (/home/quonone/workspace/dev_ws/src/install/my_interfaces/share/my_interfaces/cmake)\n'}
+[0.498568] (-) TimerEvent: {}
+[0.592731] (predictor) StdoutLine: {'line': b'-- Found OpenCV: /usr/local (found version "4.6.0") \n'}
+[0.598660] (-) TimerEvent: {}
+[0.603882] (predictor) StdoutLine: {'line': b'-- Found CXSparse: /usr/include/suitesparse (found suitable version "3.2.0", minimum required is "3.2.0") \n'}
+[0.698785] (-) TimerEvent: {}
+[0.799069] (-) TimerEvent: {}
+[0.899355] (-) TimerEvent: {}
+[0.936276] (predictor) StdoutLine: {'line': b'-- Found AMD headers in: /usr/include/suitesparse\n'}
+[0.937441] (predictor) StdoutLine: {'line': b'-- Found AMD library: /usr/lib/x86_64-linux-gnu/libamd.so\n'}
+[0.938201] (predictor) StdoutLine: {'line': b'-- Found CAMD headers in: /usr/include/suitesparse\n'}
+[0.939018] (predictor) StdoutLine: {'line': b'-- Found CAMD library: /usr/lib/x86_64-linux-gnu/libcamd.so\n'}
+[0.939245] (predictor) StdoutLine: {'line': b'-- Found CCOLAMD headers in: /usr/include/suitesparse\n'}
+[0.939768] (predictor) StdoutLine: {'line': b'-- Found CCOLAMD library: /usr/lib/x86_64-linux-gnu/libccolamd.so\n'}
+[0.939959] (predictor) StdoutLine: {'line': b'-- Found CHOLMOD headers in: /usr/include/suitesparse\n'}
+[0.940381] (predictor) StdoutLine: {'line': b'-- Found CHOLMOD library: /usr/lib/x86_64-linux-gnu/libcholmod.so\n'}
+[0.940572] (predictor) StdoutLine: {'line': b'-- Found COLAMD headers in: /usr/include/suitesparse\n'}
+[0.940997] (predictor) StdoutLine: {'line': b'-- Found COLAMD library: /usr/lib/x86_64-linux-gnu/libcolamd.so\n'}
+[0.941191] (predictor) StdoutLine: {'line': b'-- Found SPQR headers in: /usr/include/suitesparse\n'}
+[0.941622] (predictor) StdoutLine: {'line': b'-- Found SPQR library: /usr/lib/x86_64-linux-gnu/libspqr.so\n'}
+[0.941809] (predictor) StdoutLine: {'line': b'-- Found Config headers in: /usr/include/suitesparse\n'}
+[0.942229] (predictor) StdoutLine: {'line': b'-- Found Config library: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so\n'}
+[0.944811] (predictor) StdoutLine: {'line': b'-- Found Intel Thread Building Blocks (TBB) library (2021.5 / ) include location: . Assuming SuiteSparseQR was compiled with TBB.\n'}
+[0.944972] (predictor) StdoutLine: {'line': b'-- Looking for shm_open in rt\n'}
+[0.993609] (predictor) StdoutLine: {'line': b'-- Looking for shm_open in rt - found\n'}
+[0.993911] (predictor) StdoutLine: {'line': b'-- Adding librt to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).\n'}
+[0.998275] (predictor) StdoutLine: {'line': b'-- Could NOT find METIS (missing: METIS_INCLUDE_DIR METIS_LIBRARY) \n'}
+[0.999047] (predictor) StdoutLine: {'line': b'-- Found SuiteSparse: /usr/include/suitesparse (found suitable version "5.10.1", minimum required is "5.10.1") found components: AMD CAMD CCOLAMD CHOLMOD COLAMD SPQR Config \n'}
+[0.999420] (-) TimerEvent: {}
+[0.999554] (predictor) StdoutLine: {'line': b'-- Found required Ceres dependency: Eigen version 3.4.0 in /usr/share/eigen3/cmake\n'}
+[1.004644] (predictor) StdoutLine: {'line': b'-- Found required Ceres dependency: glog\n'}
+[1.005057] (predictor) StdoutLine: {'line': b'-- Found required Ceres dependency: gflags\n'}
+[1.005303] (predictor) StdoutLine: {'line': b'-- Found Ceres version: 2.1.0 installed in: /usr/local with components: [EigenSparse, SparseLinearAlgebraLibrary, LAPACK, SuiteSparse, CXSparse, SchurSpecializations, Multithreading]\n'}
+[1.008422] (predictor) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.5 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.069383] (predictor) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.069629] (predictor) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/quonone/workspace/dev_ws/src/predictor/include>\n'}
+[1.069718] (predictor) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.069950] (predictor) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.070665] (predictor) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.070731] (predictor) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.070972] (predictor) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.071714] (predictor) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.081809] (predictor) StdoutLine: {'line': b'-- Generating done\n'}
+[1.082775] (predictor) StdoutLine: {'line': b'-- Build files have been written to: /home/quonone/workspace/dev_ws/src/build/predictor\n'}
+[1.088602] (predictor) CommandEnded: {'returncode': 0}
+[1.089132] (predictor) JobProgress: {'identifier': 'predictor', 'progress': 'build'}
+[1.090134] (predictor) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/quonone/workspace/dev_ws/src/build/predictor', '--', '-j12', '-l12'], 'cwd': '/home/quonone/workspace/dev_ws/src/build/predictor', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en_US:en'), ('USER', 'quonone'), ('LC_TIME', 'zh_CN.UTF-8'), ('LIBVA_DRIVERS_PATH', '/opt/intel/mediasdk/lib64'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/120/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces/lib:/opt/intel/openvino2022/tools/compile_tool:/opt/intel/openvino2022/runtime/3rdparty/hddl/lib:/opt/intel/openvino2022/runtime/lib/intel64:/opt/intel/openvino2022/tools/compile_tool:/opt/intel/openvino2022/runtime/3rdparty/hddl/lib:/opt/intel/openvino2022/runtime/lib/intel64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HDDL_INSTALL_DIR', '/opt/intel/openvino2022/runtime/3rdparty/hddl'), ('HOME', '/home/quonone'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('TERM_PROGRAM_VERSION', '1.76.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('INTEL_OPENVINO_DIR', '/opt/intel/openvino2022'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/120/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/120/usr/share/code/code'), ('MANAGERPID', '1527'), ('SYSTEMD_EXEC_PID', '1844'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3512'), ('COLCON_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'quonone'), ('JOURNAL_STREAM', '8:33220'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/intel/openvino2022/runtime/lib/intel64/pkgconfig:/opt/intel/openvino2022/runtime/lib/intel64/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'quonone'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/quonone/.local/bin:/opt/ros/humble/bin:/home/quonone/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/pc:@/tmp/.ICE-unix/1822,unix/pc:/tmp/.ICE-unix/1822'), ('INVOCATION_ID', '9f71e84f3a39490681b19d24a1434238'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('BAMF_DESKTOP_FILE_HINT', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('LIBVA_DRIVER_NAME', 'iHD'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cb1d70c9f.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/120/usr/share/glib-2.0/schemas'), ('AMENT_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('ngraph_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('InferenceEngine_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/quonone/workspace/dev_ws/src/build/predictor'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces/local/lib/python3.10/dist-packages:/opt/intel/openvino2022/python/python3.10:/opt/intel/openvino2022/python/python3:/opt/intel/openvino2022/python/python3.10:/opt/intel/openvino2022/python/python3:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('OpenVINO_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('CMAKE_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces:/opt/ros/humble')]), 'shell': False}
+[1.099509] (-) TimerEvent: {}
+[1.126033] (predictor) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/predictor.dir/src/predictor.cpp.o\x1b[0m\n'}
+[1.199640] (-) TimerEvent: {}
+[1.299935] (-) TimerEvent: {}
+[1.400236] (-) TimerEvent: {}
+[1.500560] (-) TimerEvent: {}
+[1.600899] (-) TimerEvent: {}
+[1.701191] (-) TimerEvent: {}
+[1.801489] (-) TimerEvent: {}
+[1.901810] (-) TimerEvent: {}
+[2.002112] (-) TimerEvent: {}
+[2.102393] (-) TimerEvent: {}
+[2.202717] (-) TimerEvent: {}
+[2.303001] (-) TimerEvent: {}
+[2.403293] (-) TimerEvent: {}
+[2.503569] (-) TimerEvent: {}
+[2.603961] (-) TimerEvent: {}
+[2.704278] (-) TimerEvent: {}
+[2.804591] (-) TimerEvent: {}
+[2.904873] (-) TimerEvent: {}
+[3.005163] (-) TimerEvent: {}
+[3.105457] (-) TimerEvent: {}
+[3.205761] (-) TimerEvent: {}
+[3.306053] (-) TimerEvent: {}
+[3.406359] (-) TimerEvent: {}
+[3.506661] (-) TimerEvent: {}
+[3.606953] (-) TimerEvent: {}
+[3.707258] (-) TimerEvent: {}
+[3.807595] (-) TimerEvent: {}
+[3.907963] (-) TimerEvent: {}
+[4.008268] (-) TimerEvent: {}
+[4.108551] (-) TimerEvent: {}
+[4.159274] (predictor) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:1\x1b[m\x1b[K:\n'}
+[4.159575] (predictor) StderrLine: {'line': b'\x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/../include/predictor/predictor.h:73:22:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KKalmanFilter\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kcv::KalmanFilter\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.159660] (predictor) StderrLine: {'line': b'   73 |      std::shared_ptr<\x1b[01;31m\x1b[KKalmanFilter\x1b[m\x1b[K> kf;\n'}
+[4.159735] (predictor) StderrLine: {'line': b'      |                      \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.159790] (predictor) StderrLine: {'line': b'      |                      \x1b[32m\x1b[Kcv::KalmanFilter\x1b[m\x1b[K\n'}
+[4.159851] (predictor) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/local/include/opencv4/opencv2/video.hpp:56\x1b[m\x1b[K,\n'}
+[4.159904] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/opencv4/opencv2/opencv.hpp:89\x1b[m\x1b[K,\n'}
+[4.159957] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/../include/predictor/predictor.h:4\x1b[m\x1b[K,\n'}
+[4.160008] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:1\x1b[m\x1b[K:\n'}
+[4.160059] (predictor) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/opencv4/opencv2/video/tracking.hpp:360:20:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcv::KalmanFilter\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.160112] (predictor) StderrLine: {'line': b'  360 | class CV_EXPORTS_W \x1b[01;36m\x1b[KKalmanFilter\x1b[m\x1b[K\n'}
+[4.160164] (predictor) StderrLine: {'line': b'      |                    \x1b[01;36m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.160214] (predictor) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:1\x1b[m\x1b[K:\n'}
+[4.160265] (predictor) StderrLine: {'line': b'\x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/../include/predictor/predictor.h:73:34:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.160317] (predictor) StderrLine: {'line': b'   73 |      std::shared_ptr<KalmanFilter\x1b[01;31m\x1b[K>\x1b[m\x1b[K kf;\n'}
+[4.160367] (predictor) StderrLine: {'line': b'      |                                  \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[4.204699] (predictor) StderrLine: {'line': b'\x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KPredictor::Predictor(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.204989] (predictor) StderrLine: {'line': b'\x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:17:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kfs\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krcpputils::fs\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.205061] (predictor) StderrLine: {'line': b'   17 |     if(!\x1b[01;31m\x1b[Kfs\x1b[m\x1b[K.isOpened()){\n'}
+[4.205119] (predictor) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~\x1b[m\x1b[K\n'}
+[4.205176] (predictor) StderrLine: {'line': b'      |         \x1b[32m\x1b[Krcpputils::fs\x1b[m\x1b[K\n'}
+[4.205241] (predictor) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:25\x1b[m\x1b[K,\n'}
+[4.205294] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:23\x1b[m\x1b[K,\n'}
+[4.205347] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[4.205399] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24\x1b[m\x1b[K,\n'}
+[4.205451] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[4.205503] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25\x1b[m\x1b[K,\n'}
+[4.205554] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[4.205603] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[4.205653] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37\x1b[m\x1b[K,\n'}
+[4.205704] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25\x1b[m\x1b[K,\n'}
+[4.205755] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[4.205810] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155\x1b[m\x1b[K,\n'}
+[4.205864] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/../include/predictor/predictor.h:2\x1b[m\x1b[K,\n'}
+[4.205916] (predictor) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:1\x1b[m\x1b[K:\n'}
+[4.205966] (predictor) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/rcpputils/rcpputils/filesystem_helper.hpp:49:11:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krcpputils::fs\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.206017] (predictor) StderrLine: {'line': b'   49 | namespace \x1b[01;36m\x1b[Kfs\x1b[m\x1b[K\n'}
+[4.206066] (predictor) StderrLine: {'line': b'      |           \x1b[01;36m\x1b[K^~\x1b[m\x1b[K\n'}
+[4.208637] (-) TimerEvent: {}
+[4.308864] (-) TimerEvent: {}
+[4.409160] (-) TimerEvent: {}
+[4.509465] (-) TimerEvent: {}
+[4.609760] (-) TimerEvent: {}
+[4.710045] (-) TimerEvent: {}
+[4.810334] (-) TimerEvent: {}
+[4.910623] (-) TimerEvent: {}
+[5.010907] (-) TimerEvent: {}
+[5.111193] (-) TimerEvent: {}
+[5.211485] (-) TimerEvent: {}
+[5.311818] (-) TimerEvent: {}
+[5.412116] (-) TimerEvent: {}
+[5.512409] (-) TimerEvent: {}
+[5.612703] (-) TimerEvent: {}
+[5.712992] (-) TimerEvent: {}
+[5.813291] (-) TimerEvent: {}
+[5.913585] (-) TimerEvent: {}
+[6.013883] (-) TimerEvent: {}
+[6.114162] (-) TimerEvent: {}
+[6.214470] (-) TimerEvent: {}
+[6.314757] (-) TimerEvent: {}
+[6.415046] (-) TimerEvent: {}
+[6.515340] (-) TimerEvent: {}
+[6.615634] (-) TimerEvent: {}
+[6.716042] (-) TimerEvent: {}
+[6.816336] (-) TimerEvent: {}
+[6.916629] (-) TimerEvent: {}
+[7.016912] (-) TimerEvent: {}
+[7.117204] (-) TimerEvent: {}
+[7.217490] (-) TimerEvent: {}
+[7.317779] (-) TimerEvent: {}
+[7.418064] (-) TimerEvent: {}
+[7.518366] (-) TimerEvent: {}
+[7.618663] (-) TimerEvent: {}
+[7.719181] (-) TimerEvent: {}
+[7.819467] (-) TimerEvent: {}
+[7.919967] (-) TimerEvent: {}
+[8.020253] (-) TimerEvent: {}
+[8.120543] (-) TimerEvent: {}
+[8.220819] (-) TimerEvent: {}
+[8.321114] (-) TimerEvent: {}
+[8.405966] (predictor) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/predictor.dir/build.make:76\xef\xbc\x9aCMakeFiles/predictor.dir/src/predictor.cpp.o] \xe9\x94\x99\xe8\xaf\xaf 1\n'}
+[8.406219] (predictor) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137\xef\xbc\x9aCMakeFiles/predictor.dir/all] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[8.406326] (predictor) StderrLine: {'line': b'gmake: *** [Makefile:146\xef\xbc\x9aall] \xe9\x94\x99\xe8\xaf\xaf 2\n'}
+[8.407817] (predictor) CommandEnded: {'returncode': 2}
+[8.421194] (-) TimerEvent: {}
+[8.443475] (predictor) JobEnded: {'identifier': 'predictor', 'rc': 2}
+[8.454185] (-) EventReactorShutdown: {}

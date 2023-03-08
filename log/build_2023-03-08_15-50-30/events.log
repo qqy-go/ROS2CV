@@ -1,0 +1,163 @@
+[0.000000] (-) TimerEvent: {}
+[0.000733] (-) JobUnselected: {'identifier': 'camera'}
+[0.000759] (-) JobUnselected: {'identifier': 'detector'}
+[0.000778] (-) JobUnselected: {'identifier': 'my_interfaces'}
+[0.000794] (-) JobUnselected: {'identifier': 'robot_startup'}
+[0.000807] (-) JobUnselected: {'identifier': 'serial'}
+[0.000822] (predictor) JobQueued: {'identifier': 'predictor', 'dependencies': OrderedDict()}
+[0.000839] (predictor) JobStarted: {'identifier': 'predictor'}
+[0.011183] (predictor) JobProgress: {'identifier': 'predictor', 'progress': 'cmake'}
+[0.014443] (predictor) JobProgress: {'identifier': 'predictor', 'progress': 'build'}
+[0.014581] (predictor) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/quonone/workspace/dev_ws/src/build/predictor', '--', '-j12', '-l12'], 'cwd': '/home/quonone/workspace/dev_ws/src/build/predictor', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en_US:en'), ('USER', 'quonone'), ('LC_TIME', 'zh_CN.UTF-8'), ('LIBVA_DRIVERS_PATH', '/opt/intel/mediasdk/lib64'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/120/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces/lib:/opt/intel/openvino2022/tools/compile_tool:/opt/intel/openvino2022/runtime/3rdparty/hddl/lib:/opt/intel/openvino2022/runtime/lib/intel64:/opt/intel/openvino2022/tools/compile_tool:/opt/intel/openvino2022/runtime/3rdparty/hddl/lib:/opt/intel/openvino2022/runtime/lib/intel64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HDDL_INSTALL_DIR', '/opt/intel/openvino2022/runtime/3rdparty/hddl'), ('HOME', '/home/quonone'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('TERM_PROGRAM_VERSION', '1.76.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('INTEL_OPENVINO_DIR', '/opt/intel/openvino2022'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/120/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/120/usr/share/code/code'), ('MANAGERPID', '1527'), ('SYSTEMD_EXEC_PID', '1844'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3512'), ('COLCON_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'quonone'), ('JOURNAL_STREAM', '8:33220'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/intel/openvino2022/runtime/lib/intel64/pkgconfig:/opt/intel/openvino2022/runtime/lib/intel64/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'quonone'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/quonone/.local/bin:/opt/ros/humble/bin:/home/quonone/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/pc:@/tmp/.ICE-unix/1822,unix/pc:/tmp/.ICE-unix/1822'), ('INVOCATION_ID', '9f71e84f3a39490681b19d24a1434238'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('BAMF_DESKTOP_FILE_HINT', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('LIBVA_DRIVER_NAME', 'iHD'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cb1d70c9f.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/120/usr/share/glib-2.0/schemas'), ('AMENT_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('ngraph_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('InferenceEngine_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/quonone/workspace/dev_ws/src/build/predictor'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces/local/lib/python3.10/dist-packages:/opt/intel/openvino2022/python/python3.10:/opt/intel/openvino2022/python/python3:/opt/intel/openvino2022/python/python3.10:/opt/intel/openvino2022/python/python3:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('OpenVINO_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('CMAKE_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces:/opt/ros/humble')]), 'shell': False}
+[0.055123] (predictor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target predictor\x1b[0m\n'}
+[0.081515] (predictor) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/predictor.dir/src/predictor.cpp.o\x1b[0m\n'}
+[0.098726] (-) TimerEvent: {}
+[0.199124] (-) TimerEvent: {}
+[0.299415] (-) TimerEvent: {}
+[0.399780] (-) TimerEvent: {}
+[0.500137] (-) TimerEvent: {}
+[0.600657] (-) TimerEvent: {}
+[0.701031] (-) TimerEvent: {}
+[0.801341] (-) TimerEvent: {}
+[0.901654] (-) TimerEvent: {}
+[1.001972] (-) TimerEvent: {}
+[1.102337] (-) TimerEvent: {}
+[1.202675] (-) TimerEvent: {}
+[1.302989] (-) TimerEvent: {}
+[1.403301] (-) TimerEvent: {}
+[1.503626] (-) TimerEvent: {}
+[1.603942] (-) TimerEvent: {}
+[1.704267] (-) TimerEvent: {}
+[1.804590] (-) TimerEvent: {}
+[1.904908] (-) TimerEvent: {}
+[2.005209] (-) TimerEvent: {}
+[2.105524] (-) TimerEvent: {}
+[2.206071] (-) TimerEvent: {}
+[2.306388] (-) TimerEvent: {}
+[2.406929] (-) TimerEvent: {}
+[2.507238] (-) TimerEvent: {}
+[2.607791] (-) TimerEvent: {}
+[2.708109] (-) TimerEvent: {}
+[2.808429] (-) TimerEvent: {}
+[2.908747] (-) TimerEvent: {}
+[3.009060] (-) TimerEvent: {}
+[3.109376] (-) TimerEvent: {}
+[3.209688] (-) TimerEvent: {}
+[3.310033] (-) TimerEvent: {}
+[3.410355] (-) TimerEvent: {}
+[3.510672] (-) TimerEvent: {}
+[3.611050] (-) TimerEvent: {}
+[3.711369] (-) TimerEvent: {}
+[3.811704] (-) TimerEvent: {}
+[3.912009] (-) TimerEvent: {}
+[4.012317] (-) TimerEvent: {}
+[4.112627] (-) TimerEvent: {}
+[4.212941] (-) TimerEvent: {}
+[4.313259] (-) TimerEvent: {}
+[4.413580] (-) TimerEvent: {}
+[4.513899] (-) TimerEvent: {}
+[4.614216] (-) TimerEvent: {}
+[4.714533] (-) TimerEvent: {}
+[4.814857] (-) TimerEvent: {}
+[4.915171] (-) TimerEvent: {}
+[5.015504] (-) TimerEvent: {}
+[5.115790] (-) TimerEvent: {}
+[5.216084] (-) TimerEvent: {}
+[5.316386] (-) TimerEvent: {}
+[5.416693] (-) TimerEvent: {}
+[5.516990] (-) TimerEvent: {}
+[5.617285] (-) TimerEvent: {}
+[5.717560] (-) TimerEvent: {}
+[5.817864] (-) TimerEvent: {}
+[5.918378] (-) TimerEvent: {}
+[6.018668] (-) TimerEvent: {}
+[6.118959] (-) TimerEvent: {}
+[6.219246] (-) TimerEvent: {}
+[6.319541] (-) TimerEvent: {}
+[6.419832] (-) TimerEvent: {}
+[6.520123] (-) TimerEvent: {}
+[6.620418] (-) TimerEvent: {}
+[6.720710] (-) TimerEvent: {}
+[6.821003] (-) TimerEvent: {}
+[6.921302] (-) TimerEvent: {}
+[7.021608] (-) TimerEvent: {}
+[7.121892] (-) TimerEvent: {}
+[7.222176] (-) TimerEvent: {}
+[7.322461] (-) TimerEvent: {}
+[7.422746] (-) TimerEvent: {}
+[7.523028] (-) TimerEvent: {}
+[7.623313] (-) TimerEvent: {}
+[7.723571] (-) TimerEvent: {}
+[7.823945] (-) TimerEvent: {}
+[7.924252] (-) TimerEvent: {}
+[8.024550] (-) TimerEvent: {}
+[8.124850] (-) TimerEvent: {}
+[8.225159] (-) TimerEvent: {}
+[8.325439] (-) TimerEvent: {}
+[8.425718] (-) TimerEvent: {}
+[8.526000] (-) TimerEvent: {}
+[8.626281] (-) TimerEvent: {}
+[8.726562] (-) TimerEvent: {}
+[8.826838] (-) TimerEvent: {}
+[8.927118] (-) TimerEvent: {}
+[9.027397] (-) TimerEvent: {}
+[9.127690] (-) TimerEvent: {}
+[9.227970] (-) TimerEvent: {}
+[9.328258] (-) TimerEvent: {}
+[9.428539] (-) TimerEvent: {}
+[9.528816] (-) TimerEvent: {}
+[9.629097] (-) TimerEvent: {}
+[9.729378] (-) TimerEvent: {}
+[9.829654] (-) TimerEvent: {}
+[9.929934] (-) TimerEvent: {}
+[10.030211] (-) TimerEvent: {}
+[10.130487] (-) TimerEvent: {}
+[10.230769] (-) TimerEvent: {}
+[10.331050] (-) TimerEvent: {}
+[10.431330] (-) TimerEvent: {}
+[10.531613] (-) TimerEvent: {}
+[10.631891] (-) TimerEvent: {}
+[10.732172] (-) TimerEvent: {}
+[10.832454] (-) TimerEvent: {}
+[10.932735] (-) TimerEvent: {}
+[11.033015] (-) TimerEvent: {}
+[11.133300] (-) TimerEvent: {}
+[11.233578] (-) TimerEvent: {}
+[11.333861] (-) TimerEvent: {}
+[11.434175] (-) TimerEvent: {}
+[11.534507] (-) TimerEvent: {}
+[11.635081] (-) TimerEvent: {}
+[11.735698] (-) TimerEvent: {}
+[11.835208] (predictor) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable predictor\x1b[0m\n'}
+[11.835765] (-) TimerEvent: {}
+[11.935989] (-) TimerEvent: {}
+[12.036303] (-) TimerEvent: {}
+[12.136610] (-) TimerEvent: {}
+[12.237158] (-) TimerEvent: {}
+[12.337466] (-) TimerEvent: {}
+[12.400909] (predictor) StdoutLine: {'line': b'[100%] Built target predictor\n'}
+[12.412417] (predictor) CommandEnded: {'returncode': 0}
+[12.426592] (predictor) JobProgress: {'identifier': 'predictor', 'progress': 'install'}
+[12.431681] (predictor) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/quonone/workspace/dev_ws/src/build/predictor'], 'cwd': '/home/quonone/workspace/dev_ws/src/build/predictor', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en_US:en'), ('USER', 'quonone'), ('LC_TIME', 'zh_CN.UTF-8'), ('LIBVA_DRIVERS_PATH', '/opt/intel/mediasdk/lib64'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/120/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces/lib:/opt/intel/openvino2022/tools/compile_tool:/opt/intel/openvino2022/runtime/3rdparty/hddl/lib:/opt/intel/openvino2022/runtime/lib/intel64:/opt/intel/openvino2022/tools/compile_tool:/opt/intel/openvino2022/runtime/3rdparty/hddl/lib:/opt/intel/openvino2022/runtime/lib/intel64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HDDL_INSTALL_DIR', '/opt/intel/openvino2022/runtime/3rdparty/hddl'), ('HOME', '/home/quonone'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('TERM_PROGRAM_VERSION', '1.76.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('INTEL_OPENVINO_DIR', '/opt/intel/openvino2022'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/120/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/120/usr/share/code/code'), ('MANAGERPID', '1527'), ('SYSTEMD_EXEC_PID', '1844'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3512'), ('COLCON_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'quonone'), ('JOURNAL_STREAM', '8:33220'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/intel/openvino2022/runtime/lib/intel64/pkgconfig:/opt/intel/openvino2022/runtime/lib/intel64/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'quonone'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/quonone/.local/bin:/opt/ros/humble/bin:/home/quonone/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/pc:@/tmp/.ICE-unix/1822,unix/pc:/tmp/.ICE-unix/1822'), ('INVOCATION_ID', '9f71e84f3a39490681b19d24a1434238'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('BAMF_DESKTOP_FILE_HINT', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('LIBVA_DRIVER_NAME', 'iHD'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cb1d70c9f.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/120/usr/share/glib-2.0/schemas'), ('AMENT_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('ngraph_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('InferenceEngine_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/quonone/workspace/dev_ws/src/build/predictor'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces/local/lib/python3.10/dist-packages:/opt/intel/openvino2022/python/python3.10:/opt/intel/openvino2022/python/python3:/opt/intel/openvino2022/python/python3.10:/opt/intel/openvino2022/python/python3:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('OpenVINO_DIR', '/opt/intel/openvino2022/runtime/cmake'), ('CMAKE_PREFIX_PATH', '/home/quonone/workspace/dev_ws/src/install/my_interfaces:/opt/ros/humble')]), 'shell': False}
+[12.435523] (predictor) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[12.435654] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/lib/predictor/predictor\n'}
+[12.437545] (-) TimerEvent: {}
+[12.439045] (predictor) StdoutLine: {'line': b'-- Set runtime path of "/home/quonone/workspace/dev_ws/src/install/predictor/lib/predictor/predictor" to ""\n'}
+[12.439157] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/ament_index/resource_index/package_run_dependencies/predictor\n'}
+[12.439227] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/ament_index/resource_index/parent_prefix_path/predictor\n'}
+[12.439337] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/environment/ament_prefix_path.sh\n'}
+[12.439431] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/environment/ament_prefix_path.dsv\n'}
+[12.439533] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/environment/path.sh\n'}
+[12.439662] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/environment/path.dsv\n'}
+[12.439791] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/local_setup.bash\n'}
+[12.439874] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/local_setup.sh\n'}
+[12.439967] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/local_setup.zsh\n'}
+[12.440033] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/local_setup.dsv\n'}
+[12.440117] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/package.dsv\n'}
+[12.440195] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/ament_index/resource_index/packages/predictor\n'}
+[12.440302] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/cmake/predictorConfig.cmake\n'}
+[12.440385] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/cmake/predictorConfig-version.cmake\n'}
+[12.440479] (predictor) StdoutLine: {'line': b'-- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/package.xml\n'}
+[12.443068] (predictor) CommandEnded: {'returncode': 0}
+[12.498681] (predictor) JobEnded: {'identifier': 'predictor', 'rc': 0}
+[12.499271] (-) EventReactorShutdown: {}

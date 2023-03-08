@@ -1,0 +1,6 @@
+Invoking command in '/home/quonone/workspace/dev_ws/src/build/my_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/quonone/workspace/dev_ws/src/my_interfaces -DCMAKE_INSTALL_PREFIX=/home/quonone/workspace/dev_ws/src/install/my_interfaces
+Invoked command in '/home/quonone/workspace/dev_ws/src/build/my_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/quonone/workspace/dev_ws/src/my_interfaces -DCMAKE_INSTALL_PREFIX=/home/quonone/workspace/dev_ws/src/install/my_interfaces
+Invoking command in '/home/quonone/workspace/dev_ws/src/build/my_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/quonone/workspace/dev_ws/src/build/my_interfaces -- -j12 -l12
+Invoked command in '/home/quonone/workspace/dev_ws/src/build/my_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/quonone/workspace/dev_ws/src/build/my_interfaces -- -j12 -l12
+Invoking command in '/home/quonone/workspace/dev_ws/src/build/my_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/quonone/workspace/dev_ws/src/build/my_interfaces
+Invoked command in '/home/quonone/workspace/dev_ws/src/build/my_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/quonone/workspace/dev_ws/src/build/my_interfaces

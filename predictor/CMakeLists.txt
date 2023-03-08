@@ -11,6 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(my_interfaces REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(Ceres REQUIRED)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -23,6 +24,8 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 include_directories(${Eigen3_INCLUDE_DIR})
+include_directories(${CERES_INCLUDE_DIRS})
+
 add_executable(predictor src/predictor.cpp)
 
 target_include_directories(predictor PUBLIC
@@ -31,7 +34,7 @@ target_include_directories(predictor PUBLIC
 
 target_compile_features(predictor PUBLIC c_std_99 cxx_std_17)
 ament_target_dependencies(predictor rclcpp my_interfaces OpenCV)
-target_link_libraries(predictor   ${Eigen3_LIBRARIES})
+target_link_libraries(predictor   ${Eigen3_LIBRARIES} ${CERES_LIBRARIES})
 install(TARGETS
         predictor
         DESTINATION lib/${PROJECT_NAME})

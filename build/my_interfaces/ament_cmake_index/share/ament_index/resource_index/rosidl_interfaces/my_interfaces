@@ -1,0 +1,6 @@
+msg/Armor.idl
+msg/Armor.msg
+msg/RobotStatus.idl
+msg/RobotStatus.msg
+msg/SendData.idl
+msg/SendData.msg

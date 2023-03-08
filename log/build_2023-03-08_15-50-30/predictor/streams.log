@@ -1,0 +1,26 @@
+[0.015s] Invoking command in '/home/quonone/workspace/dev_ws/src/build/predictor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/quonone/workspace/dev_ws/src/build/predictor -- -j12 -l12
+[0.054s] [35m[1mConsolidate compiler generated dependencies of target predictor[0m
+[0.081s] [ 50%] [32mBuilding CXX object CMakeFiles/predictor.dir/src/predictor.cpp.o[0m
+[11.835s] [100%] [32m[1mLinking CXX executable predictor[0m
+[12.400s] [100%] Built target predictor
+[12.412s] Invoked command in '/home/quonone/workspace/dev_ws/src/build/predictor' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/quonone/workspace/dev_ws/src/build/predictor -- -j12 -l12
+[12.431s] Invoking command in '/home/quonone/workspace/dev_ws/src/build/predictor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/quonone/workspace/dev_ws/src/build/predictor
+[12.435s] -- Install configuration: ""
+[12.435s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/lib/predictor/predictor
+[12.438s] -- Set runtime path of "/home/quonone/workspace/dev_ws/src/install/predictor/lib/predictor/predictor" to ""
+[12.438s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/ament_index/resource_index/package_run_dependencies/predictor
+[12.438s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/ament_index/resource_index/parent_prefix_path/predictor
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/environment/ament_prefix_path.sh
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/environment/ament_prefix_path.dsv
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/environment/path.sh
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/environment/path.dsv
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/local_setup.bash
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/local_setup.sh
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/local_setup.zsh
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/local_setup.dsv
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/package.dsv
+[12.439s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/ament_index/resource_index/packages/predictor
+[12.440s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/cmake/predictorConfig.cmake
+[12.440s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/cmake/predictorConfig-version.cmake
+[12.440s] -- Installing: /home/quonone/workspace/dev_ws/src/install/predictor/share/predictor/package.xml
+[12.443s] Invoked command in '/home/quonone/workspace/dev_ws/src/build/predictor' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/quonone/workspace/dev_ws/src/build/predictor

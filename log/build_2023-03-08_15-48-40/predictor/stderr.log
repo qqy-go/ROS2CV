@@ -1,0 +1,41 @@
+In file included from [01m[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:1[m[K:
+[01m[K/home/quonone/workspace/dev_ws/src/predictor/src/../include/predictor/predictor.h:73:22:[m[K [01;31m[Kerror: [m[K‘[01m[KKalmanFilter[m[K’ was not declared in this scope; did you mean ‘[01m[Kcv::KalmanFilter[m[K’?
+   73 |      std::shared_ptr<[01;31m[KKalmanFilter[m[K> kf;
+      |                      [01;31m[K^~~~~~~~~~~~[m[K
+      |                      [32m[Kcv::KalmanFilter[m[K
+In file included from [01m[K/usr/local/include/opencv4/opencv2/video.hpp:56[m[K,
+                 from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:89[m[K,
+                 from [01m[K/home/quonone/workspace/dev_ws/src/predictor/src/../include/predictor/predictor.h:4[m[K,
+                 from [01m[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:1[m[K:
+[01m[K/usr/local/include/opencv4/opencv2/video/tracking.hpp:360:20:[m[K [01;36m[Knote: [m[K‘[01m[Kcv::KalmanFilter[m[K’ declared here
+  360 | class CV_EXPORTS_W [01;36m[KKalmanFilter[m[K
+      |                    [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:1[m[K:
+[01m[K/home/quonone/workspace/dev_ws/src/predictor/src/../include/predictor/predictor.h:73:34:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+   73 |      std::shared_ptr<KalmanFilter[01;31m[K>[m[K kf;
+      |                                  [01;31m[K^[m[K
+[01m[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:[m[K In constructor ‘[01m[KPredictor::Predictor(const string&)[m[K’:
+[01m[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:17:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kfs[m[K’ was not declared in this scope; did you mean ‘[01m[Krcpputils::fs[m[K’?
+   17 |     if(![01;31m[Kfs[m[K.isOpened()){
+      |         [01;31m[K^~[m[K
+      |         [32m[Krcpputils::fs[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:23[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/quonone/workspace/dev_ws/src/predictor/src/../include/predictor/predictor.h:2[m[K,
+                 from [01m[K/home/quonone/workspace/dev_ws/src/predictor/src/predictor.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/rcpputils/rcpputils/filesystem_helper.hpp:49:11:[m[K [01;36m[Knote: [m[K‘[01m[Krcpputils::fs[m[K’ declared here
+   49 | namespace [01;36m[Kfs[m[K
+      |           [01;36m[K^~[m[K
+gmake[2]: *** [CMakeFiles/predictor.dir/build.make:76：CMakeFiles/predictor.dir/src/predictor.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:137：CMakeFiles/predictor.dir/all] 错误 2
+gmake: *** [Makefile:146：all] 错误 2

@@ -12,52 +12,33 @@ Predictor::Predictor(const std::string& node_name) : rclcpp::Node(node_name){
     pitch_last = dis_last = yaw_last = 0;
     id_last = -1;
 
-    cv::FileStorage fs("./src/predictor/params/params.yaml", cv::FileStorage::READ);
+    cv::FileStorage fin("./src/predictor/params/params.yaml", cv::FileStorage::READ);
 
-    if(!fs.isOpened()){
+    if(!fin.isOpened()){
         std::cout<<"[ERROR ]predictor open params file error, please check \r\n";
         exit(-1);
     }
 
-    Eigen::MatrixXd A(6,6);
-    Eigen::MatrixXd P0(6,6);
-    Eigen::MatrixXd H(3,6);
-    Eigen::MatrixXd Q(6,6);
-    Eigen::MatrixXd R(3,3);
-    Eigen::MatrixXd I(6,6);
-    A<< 1,0,0,0.5,0,0,
-        0,1,0,0,0.5,0,
-        0,0,1,0,0,0.5,
-        0,0,0,1,0,0,
-        0,0,0,0,1,0,
-        0,0,0,0,0,1;
-    P0.setIdentity(6,6);
-    I.setIdentity(6,6);
-    H << 1,0,0,0,0,0,
-         0,1,0,0,0,0,
-         0,0,1,0,0,0;
+    fin["sentry_up"]["Q00"] >> ekf.Q(0, 0);
+    fin["sentry_up"]["Q11"] >> ekf.Q(1, 1);
+    fin["sentry_up"]["Q22"] >> ekf.Q(2, 2);
+    fin["sentry_up"]["Q33"] >> ekf.Q(3, 3);
+    fin["sentry_up"]["Q44"] >> ekf.Q(4, 4);
+        // 观测过程协方差
+    fin["sentry_up"]["R00"] >> ekf.R(0, 0);
+    fin["sentry_up"]["R11"] >> ekf.R(1, 1);
+    fin["sentry_up"]["R22"] >> ekf.R(2, 2);
 
-    Q << fs["sentry_up"]["Q00"], 0,0,0,0,0,
-         0,fs["sentry_up"]["Q11"],0,0,0,0,
-         0,0,fs["sentry_up"]["Q22"],0,0,0,
-         0,0,0,fs["sentry_up"]["Q33"],0,0,
-         0,0,0,0,fs["sentry_up"]["Q44"],0,
-         0,0,0,0,0,fs["sentry_up"]["Q55"];
-    R << fs["sentry_up"]["R00"],0,0,
-         0,fs["sentry_up"]["R11"],0,
-         0,0,fs["sentry_up"]["R22"];
-
-    std::cout<<"Q "<<Q<<" \r\n R "<<R<<std::endl;
-
-    kf = std::make_shared<KalmanFilter>(A,P0,H,Q,R);
-    fs.release();
+    fin.release();
 }
 
 void Predictor::reset() {
 
-    Eigen::VectorXd x0(6) ;
-    x0 << current_armor.world_point_.x, current_armor.world_point_.y, current_armor.world_point_.z,0,0,0;
-    kf->init(x0, current_armor.time_stamp);
+    
+    last_dis = current_armor.distance;
+    Eigen::Matrix<double, 5, 1> Xr;
+    Xr << current_armor.world_point_.x, 0, current_armor.world_point_.y, 0, current_armor.world_point_.z;
+    ekf.init(Xr);
     armor_seq.clear();
 }
 
@@ -88,16 +69,46 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
     current_armor.distance = sqrt(abs_point.x*abs_point.x + abs_point.y*abs_point.y + abs_point.z*abs_point.z);
     std::cout<<"time_ "<<time_stamp<<"\r\n";
 
-    if(!inited){
-        reset();
-        inited = true;
-    }
 
     if(current_armor.id>-1){
-        Eigen::VectorXd y0(3);
-        y0 << current_armor.world_point_.x, current_armor.world_point_.y, current_armor.world_point_.z;
-        kf->predict(y0,current_armor.time_stamp);
-        //
+
+        if(!inited){
+            reset();
+            last_time = time_stamp;
+            inited = true;
+        }
+
+        last_dis = current_armor.distance;
+
+        double delta_t = time_stamp - last_time;
+        last_time = time_stamp;
+
+        Predict predictfunc;
+        Measure measure;
+
+        Eigen::Matrix<double, 5, 1> Xr;
+        Xr << current_armor.world_point_.x, 0, current_armor.world_point_.y, 0, current_armor.world_point_.z; //input
+
+        Eigen::Matrix<double, 3, 1> Yr;
+        measure(Xr.data(), Yr.data());
+
+        predictfunc.delta_t = delta_t;
+        ekf.predict(predictfunc);//predict
+
+        
+
+        Eigen::Matrix<double, 5, 1> Xe = ekf.update(measure, Yr);//best evalute
+
+        double predict_time = current_armor.distance/armor_msg_->bullet_speed + 0.001;
+
+        predictfunc.delta_t = predict_time;//use measure speed to predict next
+        Eigen::Matrix<double, 5, 1> Xp;
+
+        predictfunc(Xe.data(), Xp.data());
+        Eigen::Vector3d p_pw{Xp(0, 0), Xp(2, 0), Xp(4, 0)};
+
+        auto result = cv::Point3f(p_pw(0,0),p_pw(1,0),p_pw(2,0));
+
 
         // Eigen::VectorXd Ek(3); //3x1
         // Ek = y0 - kf->H*kf->X_hat_new;
@@ -111,17 +122,14 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
         //     cv::Point3f result = current_armor.world_point_;
         //     return result;
         // }
-        kf->update(y0);
-        cv::Point3f result = cv::Point3f (kf->X_hat_new(0) +kf->X_hat_new(3)*current_armor.distance/15.0 ,\
-                                    kf->X_hat_new(1)+kf->X_hat_new(4)*current_armor.distance/15.0,\
-                                    kf->X_hat_new(2)+kf->X_hat_new(5)*current_armor.distance/15.0);
+        
 
 
         auto cam_pred = anglesolver->abs2cam(result,robot_);
         anglesolver->getAngle_nofix(cam_pred,pitch,yaw, dis);
         if(armor_seq.size()){
             if(current_armor.time_stamp - armor_seq.back().time_stamp > 2){
-
+                std::cout<<"reset!!"<<std::endl;
                 inited = false;
             }
 

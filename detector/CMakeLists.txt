@@ -16,6 +16,8 @@ find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(camera_info_manager REQUIRED)
+find_package(message_filters REQUIRED)
+find_package(Boost REQUIRED)
 set(InferenceEngine_DIR "/opt/intel/openvino2022/runtime/cmake")
 find_package(InferenceEngine)
 set(ngraph_DIR "/opt/intel/openvino2022/runtime/cmake")
@@ -25,6 +27,7 @@ include_directories(
         #OpenVINO推理引擎的头文件
         /opt/intel/openvino2022/runtime/include/
 )
+include_directories(${Boost_INCLUDE_DIRS})
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -41,10 +44,10 @@ add_executable(detector src/ovinference.cpp src/armor_detect.cpp include/detecto
 target_include_directories(detector PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-  target_compile_features(detector PUBLIC c_std_99 cxx_std_17)
+target_compile_features(detector PUBLIC c_std_99 cxx_std_17)
 
-ament_target_dependencies(detector rclcpp sensor_msgs image_transport cv_bridge OpenCV camera_info_manager my_interfaces)
-target_link_libraries(detector  openvino::runtime)
+ament_target_dependencies(detector rclcpp sensor_msgs image_transport cv_bridge OpenCV camera_info_manager my_interfaces message_filters)
+target_link_libraries(detector  openvino::runtime ${Boost_LIBRARIES})
 install(TARGETS
         detector
         DESTINATION lib/${PROJECT_NAME})

@@ -20,7 +20,7 @@ public:
         camera_pub_ = image_transport::create_camera_publisher(this, "/camera/image_raw", rmw_qos_profile_sensor_data);
         camera_info_manager_ =
       std::make_unique<camera_info_manager::CameraInfoManager>(this, "daheng159",
-      "file:///home/ares/workspace/dev_ws/src/camera/params/daheng159.yaml");
+      "file:///home/quonone/workspace/dev_ws/src/camera/params/daheng159.yaml");
     
         camera_info_msg_ = camera_info_manager_->getCameraInfo();
         //create timer
@@ -32,7 +32,7 @@ public:
             RCLCPP_ERROR(this-> get_logger(), "Config Camera Faile...");
             exit(-1);
         }
-        cam0_info.sn_str = "KE0200120159";
+        cam0_info.sn_str = "KE0200100061";
         cam0_info.SN = &cam0_info.sn_str[0];
 
         cam0 = std::make_unique<MercureDriver>(cam0_info);
@@ -82,7 +82,8 @@ public:
                                                  pFrameBuffer->nHeight, cvtype, nBayerType, false);
                 if(DxStatus == DX_OK){
                     
-                    camera_info_msg_.header.stamp.sec= image_msg_.header.stamp.sec = tic->this_time(); //TODO :check if use or not
+                    // camera_info_msg_.header.stamp.sec= image_msg_.header.stamp.sec = tic->this_time(); //TODO :check if use or not
+                    camera_info_msg_.header.stamp= image_msg_.header.stamp = this->get_clock()->now(); //TODO :check if use or not
                     image_msg_.height = pFrameBuffer->nHeight;
                     image_msg_.width = pFrameBuffer->nWidth;
                     image_msg_.step = pFrameBuffer->nWidth * 3;             //three channels 

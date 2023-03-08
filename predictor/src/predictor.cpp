@@ -2,12 +2,12 @@
 
 
 Predictor::Predictor(const std::string& node_name) : rclcpp::Node(node_name){
+    
     RCLCPP_INFO(this->get_logger(), "This is %s",node_name.c_str());
     armor_sub_ = this->create_subscription<my_interfaces::msg::Armor>("/detector/cam_point", 10, \
     std::bind(&Predictor::predict_callback, this, std::placeholders::_1));
     data_pub_ = this->create_publisher<my_interfaces::msg::SendData>("/predictor/send_data", 10);
-     robot_sub_ = this->create_subscription<my_interfaces::msg::RobotStatus>("/serial/robotinfo",10,\
-    std::bind(&Predictor::robotCallback, this, std::placeholders::_1));
+
     anglesolver = std::make_unique<AngleSolver>();
     pitch_last = dis_last = yaw_last = 0;
     id_last = -1;
@@ -75,9 +75,11 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
     //             <<" yaw: "<<robot_.ptz_yaw
     //             <<" bulled speed: "<<robot_.bullet_speed<<std::endl;
 
-    RobotInfo this_robot = robot_;
+    robot_.ptz_pitch = armor_msg_->robot_pitch;
+    robot_.ptz_yaw = armor_msg_->robot_yaw;
+    robot_.bullet_speed = armor_msg_->bullet_speed;
     
-    auto abs_point = anglesolver->cam2abs(cam, this_robot);
+    auto abs_point = anglesolver->cam2abs(cam, robot_);
     std::cout<<"abs cam_ "<<abs_point<<std::endl;
     ///predict
     current_armor.world_point_ = abs_point;
@@ -91,33 +93,48 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
         inited = true;
     }
 
-    Eigen::VectorXd y0(3);
-    y0 << current_armor.world_point_.x, current_armor.world_point_.y, current_armor.world_point_.z;
-    kf->predict(y0,current_armor.time_stamp);
-    //
+    if(current_armor.id>-1){
+        Eigen::VectorXd y0(3);
+        y0 << current_armor.world_point_.x, current_armor.world_point_.y, current_armor.world_point_.z;
+        kf->predict(y0,current_armor.time_stamp);
+        //
 
-    // Eigen::VectorXd Ek(3); //3x1
-    // Ek = y0 - kf->H*kf->X_hat_new;
-    // Eigen::MatrixXd Dk(3,3);
-    // Dk=kf->H*kf->P+kf->R; //3x3
-    // auto rk = Ek.transpose()*Dk.inverse()*Ek;
-    // std::cout<<"kafang "<<rk<<std::endl;
+        // Eigen::VectorXd Ek(3); //3x1
+        // Ek = y0 - kf->H*kf->X_hat_new;
+        // Eigen::MatrixXd Dk(3,3);
+        // Dk=kf->H*kf->P+kf->R; //3x3
+        // auto rk = Ek.transpose()*Dk.inverse()*Ek;
+        // std::cout<<"kafang "<<rk<<std::endl;
 
-    // if(rk < evaluate_threshold){
-    //     reset();
-    //     cv::Point3f result = current_armor.world_point_;
-    //     return result;
-    // }
-    kf->update(y0);
-    cv::Point3f result = cv::Point3f (kf->X_hat_new(0) +kf->X_hat_new(3)*current_armor.distance/15.0 ,\
+        // if(rk < evaluate_threshold){
+        //     reset();
+        //     cv::Point3f result = current_armor.world_point_;
+        //     return result;
+        // }
+        kf->update(y0);
+        cv::Point3f result = cv::Point3f (kf->X_hat_new(0) +kf->X_hat_new(3)*current_armor.distance/15.0 ,\
                                     kf->X_hat_new(1)+kf->X_hat_new(4)*current_armor.distance/15.0,\
                                     kf->X_hat_new(2)+kf->X_hat_new(5)*current_armor.distance/15.0);
 
-    auto cam_pred = anglesolver->abs2cam(result,this_robot);
 
-    //
-    // anglesolver->getAngle_nofix(cam_pred,pitch,yaw, dis);
-    anglesolver->getAngle_nofix(cam,pitch,yaw, dis);
+        auto cam_pred = anglesolver->abs2cam(result,robot_);
+        anglesolver->getAngle_nofix(cam_pred,pitch,yaw, dis);
+        if(armor_seq.size()){
+            if(current_armor.time_stamp - armor_seq.back().time_stamp > 2){
+
+                inited = false;
+            }
+
+        }
+        armor_seq.push_back(current_armor);
+        if(armor_seq.size()>200){armor_seq.erase(armor_seq.begin());}
+
+        
+
+    }else{
+        anglesolver->getAngle_nofix(cam,pitch,yaw, dis);
+
+    }
 
 
     auto send = my_interfaces::msg::SendData();
@@ -153,13 +170,6 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
 
 }
 
-
-void Predictor::robotCallback(const std::shared_ptr<my_interfaces::msg::RobotStatus> robot_msg){
-    robot_.color = robot_msg->color;
-    robot_.ptz_pitch = robot_msg->pitch;
-    robot_.ptz_yaw = robot_msg->yaw;
-    robot_.bullet_speed = robot_msg->bullet_speed;
-}
 
 int main(int argc, char** argv){
     rclcpp::init(argc, argv);

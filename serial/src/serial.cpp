@@ -386,6 +386,7 @@ int SerialPort::ReceiveBuff()
                 //std::cout<<"bit8 "<<hex<<uint8_t(dst_buff[8])<<" "<<"bit9"<<hex<<uint8_t(dst_buff[9])<<std::endl;
                 auto robot_status = my_interfaces::msg::RobotStatus();
                 // robot_status = {'a', pitch_ptz, yaw_ptz, double(speed_d)};
+                robot_status.header.stamp = this->get_clock()->now();
                 robot_status.color = buff_r_[4];
                 robot_status.pitch = pitch_ptz;
                 robot_status.yaw = yaw_ptz;

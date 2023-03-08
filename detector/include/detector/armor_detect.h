@@ -6,6 +6,14 @@
 #include "PNPSolver.hpp"
 #include "ovinference.h"
 #include "my_interfaces/msg/armor.hpp"
+#include "my_interfaces/msg/robot_status.hpp"
+#include <message_filters/subscriber.h>
+#include <message_filters/synchronizer.h>
+#include <message_filters/time_synchronizer.h>
+#include <message_filters/sync_policies/approximate_time.h>
+
+using namespace message_filters;
+
 
 
 class ArmorDetect : public rclcpp::Node{
@@ -21,7 +29,6 @@ private:
     int lock_cnt = 0;
  
 
-    sensor_msgs::msg::Image image_mag;
     std::shared_ptr<image_transport::CameraSubscriber> camera_sub_;
     std_msgs::msg::Header pub_header_;
 
@@ -37,11 +44,20 @@ private:
     
     std_msgs::msg::Header hdr;
 
-    void imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr & image_msg);
-    
+    typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::msg::Image,my_interfaces::msg::RobotStatus> camimuSyncPolicy;
+
+    std::shared_ptr<message_filters::Subscriber<sensor_msgs::msg::Image>> image_sub_;
+    std::shared_ptr<message_filters::Subscriber<my_interfaces::msg::RobotStatus>> robot_sub_;
+    std::shared_ptr<message_filters::Synchronizer<camimuSyncPolicy>> sync_;
+
+    // void imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr & image_msg);
+
+    void combineCallback(const sensor_msgs::msg::Image::ConstSharedPtr & image_msg,
+    const std::shared_ptr<my_interfaces::msg::RobotStatus const>& robot_msg);
+
     void color_check(const char color, std::vector<OvInference::Detection>& results);
     void armor_sort(OvInference::Detection& final_obj, std::vector<OvInference::Detection>& results, cv::Mat& src);
     void draw_target(const OvInference::Detection& obj, cv::Mat& src);
 
-
+    
 };

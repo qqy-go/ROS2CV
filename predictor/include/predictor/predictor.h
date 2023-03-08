@@ -23,9 +23,8 @@ private:
      std::shared_ptr<KalmanFilter> kf;
     rclcpp::Subscription<my_interfaces::msg::Armor>::SharedPtr armor_sub_;
     rclcpp::Publisher<my_interfaces::msg::SendData>::SharedPtr data_pub_;
-    rclcpp::Subscription<my_interfaces::msg::RobotStatus>::SharedPtr robot_sub_;
     void predict_callback(const std::shared_ptr<my_interfaces::msg::Armor> armor_msg_);
-    void robotCallback(const std::shared_ptr<my_interfaces::msg::RobotStatus> robot_msg);
+
 
 public:
 

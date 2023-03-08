@@ -20,7 +20,7 @@ public:
         camera_pub_ = image_transport::create_camera_publisher(this, "/camera/image_raw", rmw_qos_profile_sensor_data);
         camera_info_manager_ =
       std::make_unique<camera_info_manager::CameraInfoManager>(this, "daheng159",
-      "file:///home/quonone/workspace/dev_ws/src/camera/params/daheng159.yaml");
+      "file:///home/ares/workspace/dev_ws/src/camera/params/daheng159.yaml");
     
         camera_info_msg_ = camera_info_manager_->getCameraInfo();
         //create timer
@@ -32,7 +32,7 @@ public:
             RCLCPP_ERROR(this-> get_logger(), "Config Camera Faile...");
             exit(-1);
         }
-        cam0_info.sn_str = "KE0200100061";
+        cam0_info.sn_str = "KE0200120159";
         cam0_info.SN = &cam0_info.sn_str[0];
 
         cam0 = std::make_unique<MercureDriver>(cam0_info);

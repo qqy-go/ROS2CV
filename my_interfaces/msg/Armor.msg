@@ -4,5 +4,6 @@ int8 id
 geometry_msgs/Point cam_point
 float32 robot_pitch
 float32 robot_yaw
+float32 robot_roll
 float32 bullet_speed
 

@@ -17,26 +17,30 @@ public:
         // std::cout<<pitch_diff<<" "<<yaw_diff<<std::endl;
         // fs1.release();
 
-        trans <<1,0,0,  0.0405,   //                     x
-                0,1,0,  -0.0072,   //-0.0455             y
-                0,0,1,  0.0809,  //0.1415              //z
+        trans <<1,0,0,  0.01,   //                     x
+                0,1,0,  -0.1788,   //-0.0455             y
+                0,0,1,  0.0056,  //0.1415              //z
                 0,0,0,  1;
     }
     ~AngleSolver()=default;
 
     cv::Point3f cam2abs(const cv::Point3f& camPoint, const RobotInfo& robot) {
-        getRotX(-robot.ptz_pitch);
-        getRotY(-robot.ptz_yaw);
-        getRotZ(0);
+        getRotX(robot.ptz_pitch);
+        getRotY(robot.ptz_roll);
+        getRotZ(robot.ptz_yaw);
+        getRotZ_cam2imu(-3.14159/2);
+
+
+
         pointMat << camPoint.x, camPoint.y, camPoint.z, 1;
-        auto result =   trans*RotY*RotX*RotZ*pointMat; // y x z
+        auto result =   RotY*RotX*RotZ*trans*RotZ2*pointMat; // y x z
         return cv::Point3f (result(0,0),result(1,0),result(2,0));
     }
 
     cv::Point3f abs2cam(const cv::Point3f& absPoint, const RobotInfo& robot) {
-        getRotX(-robot.ptz_pitch);
-        getRotY(-robot.ptz_yaw);
-        getRotZ(0);
+        getRotX(robot.ptz_pitch);
+        getRotY(robot.ptz_roll);
+        getRotZ(robot.ptz_yaw);
         absPointMat << absPoint.x, absPoint.y, absPoint.z ,1;
         auto T = trans*RotY*RotX*RotZ;
         auto camPointMat = T.inverse()*absPointMat;
@@ -73,10 +77,10 @@ public:
 //     }
 
     void getAngle_nofix(const cv::Point3f& cam_, double &pitch, double &yaw, double &Dis) {
-        cv::Point3f gun_ = cam2gun(cam_, cam2gunDiff);
-        pitch = atan(gun_.y / sqrt(gun_.x * gun_.x + gun_.z * gun_.z));//more big more down
-        yaw = atan(gun_.x / gun_.z); //more big more right
-        Dis = sqrt(gun_.x * gun_.x + gun_.z * gun_.z +gun_.y*gun_.y);
+        // cv::Point3f gun_ = cam2gun(cam_, cam2gunDiff);
+        pitch = atan(cam_.z / sqrt(cam_.x * cam_.x + cam_.y * cam_.y));//more big more down
+        yaw = atan(cam_.y / cam_.x); //more big more right
+        Dis = sqrt(cam_.x * cam_.x + cam_.z * cam_.z +cam_.y*cam_.y);
     }
 
 private:
@@ -93,24 +97,32 @@ private:
     Matrix<double,4, 4> RotX;
     Matrix<double, 4,4> RotY;
     Matrix<double , 4, 4>RotZ;
+     Matrix<double , 4, 4>RotZ2;
     Matrix<double , 4, 4>Rot;
     Matrix<double, 4,1> pointMat;
     Matrix<double, 4,1> absPointMat;
 
-    void getRotX(double pitch) {
+    inline void getRotX(double pitch) {
         RotX << 1,             0,             0, 0,
                 0, cos(pitch), -sin(pitch), 0,
                 0, sin(pitch), cos(pitch),  0,
                 0,             0,             0,  1;
     }
-    void getRotY(double yaw) {
+    inline void getRotY(double yaw) {
         RotY << cos(yaw), 0, sin(yaw), 0,
                 0,           1,           0, 0,
                 -sin(yaw), 0, cos(yaw), 0,
                 0,            0,          0, 1;
     }
-    void getRotZ(double roll) {
+    inline void getRotZ(double roll) {
         RotZ << cos(roll), -sin(roll), 0, 0,
+                sin(roll), cos(roll), 0, 0,
+                0,                       0, 1, 0,
+                0,                       0, 0, 1;
+    }
+
+    inline void getRotZ_cam2imu(double roll) {
+        RotZ2 << cos(roll), -sin(roll), 0, 0,
                 sin(roll), cos(roll), 0, 0,
                 0,                       0, 1, 0,
                 0,                       0, 0, 1;

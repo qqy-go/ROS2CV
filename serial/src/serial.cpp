@@ -379,7 +379,8 @@ int SerialPort::ReceiveBuff()
 
                 buff[2] =  ((uint16_t)buff_r_[9]<<8)| uint8_t (buff_r_[10]);
                 buff[3] = ((uint16_t)buff_r_[11]<<8)| uint8_t (buff_r_[12]);
-                double speed_d = double(buff[2]);
+                double roll_ptz = double(buff[2])/1000;
+                double speed_d = double(buff[3]);
                 // double pitch_w = double(buff[2]) / 1000 ; //角速度
                 // double yaw_w = double(buff[3]) / 1000 ;
 
@@ -390,6 +391,7 @@ int SerialPort::ReceiveBuff()
                 robot_status.color = buff_r_[4];
                 robot_status.pitch = pitch_ptz;
                 robot_status.yaw = yaw_ptz;
+                robot_status.roll = roll_ptz;
                 robot_status.bullet_speed = speed_d;
                 serial_publisher->publish(robot_status);
                 // robotInfo_ = 
@@ -451,10 +453,10 @@ void SerialPort::data_send(const std::shared_ptr<my_interfaces::msg::SendData> d
     char* send_data = new char[6];
     char cmd = 0x31;
     if(data_msg_->tg_num == 0) {cmd = 0x30;}
-    send_data[0] = int16_t (10000*pitch);
-    send_data[1] = int16_t (10000*pitch) >> 8;
-    send_data[2] = int16_t (10000*yaw);
-    send_data[3] = int16_t (10000*yaw) >> 8;
+    send_data[0] = int16_t (1000*pitch);
+    send_data[1] = int16_t (1000*pitch) >> 8;
+    send_data[2] = int16_t (1000*yaw);
+    send_data[3] = int16_t (1000*yaw) >> 8;
     send_data[4] = int16_t (100*dis);
     send_data[5] = int16_t (100*dis) >> 8;
     bool status = this->SendBuff(cmd, send_data, 6);

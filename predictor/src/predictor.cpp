@@ -58,17 +58,20 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
 
     robot_.ptz_pitch = armor_msg_->robot_pitch;
     robot_.ptz_yaw = armor_msg_->robot_yaw;
+    robot_.ptz_roll = armor_msg_->robot_roll;
     robot_.bullet_speed = armor_msg_->bullet_speed;
     
     auto abs_point = anglesolver->cam2abs(cam, robot_);
-    std::cout<<"abs cam_ "<<abs_point<<std::endl;
+    // RCLCPP_INFO(this->get_logger(), "abs point x: %lf , y: %lf , z:%lf",abs_point.x, abs_point.y,abs_point.z);
+    // std::cout<<"abs cam_ "<<abs_point<<std::endl;
     ///predict
     current_armor.world_point_ = abs_point;
     current_armor.time_stamp = time_stamp;
     current_armor.id = armor_msg_->id;
     current_armor.distance = sqrt(abs_point.x*abs_point.x + abs_point.y*abs_point.y + abs_point.z*abs_point.z);
-    std::cout<<"time_ "<<time_stamp<<"\r\n";
+    // std::cout<<"time_ "<<time_stamp<<"\r\n";
 
+    // found armor case
 
     if(current_armor.id>-1){
 
@@ -126,7 +129,11 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
 
 
         auto cam_pred = anglesolver->abs2cam(result,robot_);
-        anglesolver->getAngle_nofix(cam_pred,pitch,yaw, dis);
+        anglesolver->getAngle_nofix(cam,pitch,yaw, dis);
+
+
+        // if armor continue check
+        
         if(armor_seq.size()){
             if(current_armor.time_stamp - armor_seq.back().time_stamp > 2){
                 std::cout<<"reset!!"<<std::endl;
@@ -136,9 +143,6 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
         }
         armor_seq.push_back(current_armor);
         if(armor_seq.size()>200){armor_seq.erase(armor_seq.begin());}
-
-        
-
     }else{
         anglesolver->getAngle_nofix(cam,pitch,yaw, dis);
 
@@ -175,7 +179,8 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
     send.yaw = yaw;
     send.dis = dis;
     data_pub_->publish(send);
-
+    // std::cout<<"[cam final angle ] "<<" pitch "<<pitch<<" yaw "<<yaw<<" dis "<<dis<<std::endl;
+    RCLCPP_INFO(this->get_logger(), "cam pitch: %lf , yaw : %lf",pitch, yaw);
 }
 
 

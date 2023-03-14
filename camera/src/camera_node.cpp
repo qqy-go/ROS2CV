@@ -6,18 +6,17 @@
 #include "opencv2/highgui/highgui.hpp"
 #include <camera_info_manager/camera_info_manager.hpp>
 #include <sensor_msgs/msg/camera_info.hpp>
-#include "../../include/Tictoc.hpp"
 
 class Camera : public rclcpp::Node{
 
 public:
     explicit Camera(const std::string& name, const int image_width, const int image_height) : Node(name)
     {
-        tic = std::make_unique<Tictok>();
+
         RCLCPP_INFO(this -> get_logger(),"This is %s.",name.c_str());
         width = image_width;
         height = image_height;
-        camera_pub_ = image_transport::create_camera_publisher(this, "/camera/image_raw", rmw_qos_profile_sensor_data);
+        camera_pub_ = image_transport::create_camera_publisher(this, "/camera/image_raw", rmw_qos_profile_sensor_data); //rqt cn not receive sensor data 
         camera_info_manager_ =
       std::make_unique<camera_info_manager::CameraInfoManager>(this, "daheng159",
       "file:///home/ares/workspace/dev_ws/src/camera/params/daheng159.yaml");
@@ -64,7 +63,6 @@ public:
     
     camera_config cam0_info;          //struct
     std::unique_ptr<MercureDriver> cam0;
-    std::unique_ptr<Tictok> tic;
     sensor_msgs::msg::Image image_msg_;
     image_transport::CameraPublisher camera_pub_;
     sensor_msgs::msg::CameraInfo camera_info_msg_;

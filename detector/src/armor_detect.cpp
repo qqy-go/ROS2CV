@@ -10,7 +10,7 @@ ArmorDetect::ArmorDetect(const std::string& name) : Node(name){
     // camera_sub_ = std::make_shared<image_transport::CameraSubscriber>(this, "/camera/image_raw", 
     // std::bind(&ArmorDetect::imageCallback,this,std::placeholders::_1), "raw",rmw_qos_profile_sensor_data);
 
-    display_pub_ = image_transport::create_publisher(this, "/detector/image_display",rmw_qos_profile_sensor_data);
+    display_pub_ = image_transport::create_publisher(this, "/detector/image_display",rmw_qos_profile_default);
 
     ovinfer = std::make_shared<OvInference>("./src/detector/model/rm-net16.xml");
     camerainfo_sub_ = this->create_subscription<sensor_msgs::msg::CameraInfo>("/camera/camera_info",rclcpp::SensorDataQoS(),
@@ -164,9 +164,9 @@ void ArmorDetect::combineCallback(const sensor_msgs::msg::Image::ConstSharedPtr 
         double image_t = image_msg->header.stamp.sec + image_msg->header.stamp.nanosec*1e-9;
         double serial_t = robot_msg->header.stamp.sec + robot_msg->header.stamp.nanosec*1e-9;
         // double time_stamp = double(image_msg->header.stamp.sec)/1000.0;
-        RCLCPP_INFO(this->get_logger(), "camera sec: %lf ",image_t);
-        RCLCPP_INFO(this->get_logger(), "serial sec: %lf ",serial_t);
-        std::cout<<"\r\n"<<std::endl;
+        // RCLCPP_INFO(this->get_logger(), "camera sec: %lf ",image_t);
+        // RCLCPP_INFO(this->get_logger(), "serial sec: %lf ",serial_t);
+        // std::cout<<"\r\n"<<std::endl;
 
 
 
@@ -183,9 +183,9 @@ void ArmorDetect::combineCallback(const sensor_msgs::msg::Image::ConstSharedPtr 
         draw_target(final_obj,src);
         cv::Point3f cam_ = cv::Point3f(0,0,0);
         cam_ = pnpsolver->get_cam_point(final_obj);
-        // if(final_obj.class_id > -1){
-        //     std::cout<< "cam_ point "<<cam_<<std::endl;
-        // }
+        if(final_obj.class_id > -1){
+            std::cout<< "cam_ point "<<cam_<<std::endl;
+        }
         
         auto campoint_msg_ = my_interfaces::msg::Armor();
         campoint_msg_.time_stamp = image_t;
@@ -196,6 +196,7 @@ void ArmorDetect::combineCallback(const sensor_msgs::msg::Image::ConstSharedPtr 
         campoint_msg_.robot_pitch = robot_msg->pitch;
         campoint_msg_.robot_yaw = robot_msg->yaw;
         campoint_msg_.bullet_speed = robot_msg->bullet_speed;
+        campoint_msg_.robot_roll = robot_msg->roll;
 
         campoint_pub_->publish(campoint_msg_);
         ///TODO: publish processed image, armor information

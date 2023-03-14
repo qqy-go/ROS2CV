@@ -66,15 +66,15 @@ public:
         /// TODO:
     }
 
-    VectorX Xe;     // 估计状态变量
-    VectorX Xp;     // 预测状态变量
-    MatrixXX F;     // 预测雅克比
-    MatrixYX H;     // 观测雅克比
-    MatrixXX P;     // 状态协方差
-    MatrixXX Q;     // 预测过程协方差
-    MatrixYY R;     // 观测过程协方差
-    MatrixXY K;     // 卡尔曼增益
-    VectorY Yp;     // 预测观测量
+    VectorX Xe;     // 估计状态变量    5x1
+    VectorX Xp;     // 预测状态变量    5x1
+    MatrixXX F;     // 预测雅克比      5x5
+    MatrixYX H;     // 观测雅克比      3x5
+    MatrixXX P;     // 状态协方差      5x5
+    MatrixXX Q;     // 预测过程协方差   5x5
+    MatrixYY R;     // 观测过程协方差   3x3
+    MatrixXY K;     // 卡尔曼增益      3x5
+    VectorY Yp;     // 预测观测量      3x1
 };
 
 

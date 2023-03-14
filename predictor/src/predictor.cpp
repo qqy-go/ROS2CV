@@ -64,11 +64,16 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
     auto abs_point = anglesolver->cam2abs(cam, robot_);
     // RCLCPP_INFO(this->get_logger(), "abs point x: %lf , y: %lf , z:%lf",abs_point.x, abs_point.y,abs_point.z);
     // std::cout<<"abs cam_ "<<abs_point<<std::endl;
+
+
+    //imu_abs to motion_abs
+    //model meanings: x->left; y->up; z->forward
+    abs2motion(abs_point,current_armor.world_point_);
     ///predict
-    current_armor.world_point_ = abs_point;
     current_armor.time_stamp = time_stamp;
     current_armor.id = armor_msg_->id;
-    current_armor.distance = sqrt(abs_point.x*abs_point.x + abs_point.y*abs_point.y + abs_point.z*abs_point.z);
+    current_armor.distance = sqrt(current_armor.world_point_.x*current_armor.world_point_.x + current_armor.world_point_.y*current_armor.world_point_.y + \
+                                current_armor.world_point_.z*current_armor.world_point_.z);
     // std::cout<<"time_ "<<time_stamp<<"\r\n";
 
     // found armor case
@@ -93,12 +98,13 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
         Xr << current_armor.world_point_.x, 0, current_armor.world_point_.y, 0, current_armor.world_point_.z; //input
 
         Eigen::Matrix<double, 3, 1> Yr;
-        measure(Xr.data(), Yr.data());
+        measure(Xr.data(), Yr.data());  //convert xyz to pitch yaw 
 
         predictfunc.delta_t = delta_t;
         ekf.predict(predictfunc);//predict
 
         
+        //TODO: add evaluation to check 
 
         Eigen::Matrix<double, 5, 1> Xe = ekf.update(measure, Yr);//best evalute
 
@@ -107,11 +113,13 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
         predictfunc.delta_t = predict_time;//use measure speed to predict next
         Eigen::Matrix<double, 5, 1> Xp;
 
-        predictfunc(Xe.data(), Xp.data());
+        predictfunc(Xe.data(), Xp.data()); //use ekf v to predict next position
         Eigen::Vector3d p_pw{Xp(0, 0), Xp(2, 0), Xp(4, 0)};
 
         auto result = cv::Point3f(p_pw(0,0),p_pw(1,0),p_pw(2,0));
-
+        cv::Point3f abs_pred;
+        //get final abs
+        motion2abs(result, abs_pred);
 
         // Eigen::VectorXd Ek(3); //3x1
         // Ek = y0 - kf->H*kf->X_hat_new;
@@ -128,7 +136,7 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
         
 
 
-        auto cam_pred = anglesolver->abs2cam(result,robot_);
+        auto cam_pred = anglesolver->abs2cam(abs_pred,robot_);
         anglesolver->getAngle_nofix(cam,pitch,yaw, dis);
 
 

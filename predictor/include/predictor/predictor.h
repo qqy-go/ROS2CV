@@ -74,6 +74,18 @@ private:
     rclcpp::Publisher<my_interfaces::msg::SendData>::SharedPtr data_pub_;
     void predict_callback(const std::shared_ptr<my_interfaces::msg::Armor> armor_msg_);
 
+    inline void abs2motion(cv::Point3f &abs_p_,cv::Point3f& motion_p_){
+        motion_p_.x = abs_p_.x;
+        motion_p_.y = abs_p_.z;
+        motion_p_.z = -abs_p_.y;
+    }
+
+    inline void motion2abs(cv::Point3f &motion_p_, cv::Point3f& abs_p_){
+        abs_p_.x = motion_p_.x;
+        abs_p_.y = -motion_p_.z;
+        abs_p_.z = motion_p_.y;
+    }
+
 
 public:
 

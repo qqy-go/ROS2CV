@@ -41,8 +41,10 @@ public:
         getRotX(robot.ptz_pitch);
         getRotY(robot.ptz_roll);
         getRotZ(robot.ptz_yaw);
+        getRotZ_cam2imu(-3.14159/2);
+
         absPointMat << absPoint.x, absPoint.y, absPoint.z ,1;
-        auto T = trans*RotY*RotX*RotZ;
+        auto T = RotY*RotX*RotZ*trans*RotZ2;
         auto camPointMat = T.inverse()*absPointMat;
         return cv::Point3f (camPointMat(0,0),camPointMat(1,0),camPointMat(2,0));
 

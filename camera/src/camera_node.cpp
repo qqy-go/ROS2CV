@@ -16,7 +16,7 @@ public:
         RCLCPP_INFO(this -> get_logger(),"This is %s.",name.c_str());
         width = image_width;
         height = image_height;
-        camera_pub_ = image_transport::create_camera_publisher(this, "/camera/image_raw", rmw_qos_profile_sensor_data); //rqt cn not receive sensor data 
+        camera_pub_ = image_transport::create_camera_publisher(this, "/camera/image_raw", rmw_qos_profile_default); //rqt cn not receive sensor data 
         camera_info_manager_ =
       std::make_unique<camera_info_manager::CameraInfoManager>(this, "daheng159",
       "file:///home/ares/workspace/dev_ws/src/camera/params/daheng159.yaml");
@@ -102,7 +102,7 @@ public:
 int main(int argc, char** argv){
     rclcpp::init(argc, argv);
     
-    auto node = std::make_shared<Camera>("camera_node", 960, 768);
+    auto node = std::make_shared<Camera>("camera_node", 640, 480);
     rclcpp::spin(node);
     rclcpp::shutdown();
 

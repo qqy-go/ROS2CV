@@ -62,13 +62,14 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
     robot_.bullet_speed = armor_msg_->bullet_speed;
     
     auto abs_point = anglesolver->cam2abs(cam, robot_);
+  
     // RCLCPP_INFO(this->get_logger(), "abs point x: %lf , y: %lf , z:%lf",abs_point.x, abs_point.y,abs_point.z);
     // std::cout<<"abs cam_ "<<abs_point<<std::endl;
 
 
     //imu_abs to motion_abs
     //model meanings: x->left; y->up; z->forward
-    abs2motion(abs_point,current_armor.world_point_);
+    abs2motion(abs_point, current_armor.world_point_);
     ///predict
     current_armor.time_stamp = time_stamp;
     current_armor.id = armor_msg_->id;
@@ -89,6 +90,7 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
         last_dis = current_armor.distance;
 
         double delta_t = time_stamp - last_time;
+        std::cout<<"delta t "<<delta_t<<std::endl;
         last_time = time_stamp;
 
         Predict predictfunc;
@@ -137,7 +139,7 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
 
 
         auto cam_pred = anglesolver->abs2cam(abs_pred,robot_);
-        anglesolver->getAngle_nofix(cam,pitch,yaw, dis);
+        anglesolver->getAngle_nofix(cam_pred,pitch,yaw, dis);
 
 
         // if armor continue check

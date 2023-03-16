@@ -25,7 +25,7 @@ public:
     ~AngleSolver()=default;
 
     cv::Point3f cam2abs(const cv::Point3f& camPoint, const RobotInfo& robot) {
-        getRotX(robot.ptz_pitch);
+        getRotX(-robot.ptz_pitch);
         getRotY(robot.ptz_roll);
         getRotZ(robot.ptz_yaw);
         getRotZ_cam2imu(-3.14159/2);
@@ -33,12 +33,12 @@ public:
 
 
         pointMat << camPoint.x, camPoint.y, camPoint.z, 1;
-        auto result =   RotY*RotX*RotZ*trans*RotZ2*pointMat; // y x z
+        auto result =   RotY*RotX*RotZ*trans*RotZ2*pointMat; // ZXY
         return cv::Point3f (result(0,0),result(1,0),result(2,0));
     }
 
     cv::Point3f abs2cam(const cv::Point3f& absPoint, const RobotInfo& robot) {
-        getRotX(robot.ptz_pitch);
+        getRotX(-robot.ptz_pitch);
         getRotY(robot.ptz_roll);
         getRotZ(robot.ptz_yaw);
         getRotZ_cam2imu(-3.14159/2);

@@ -34,7 +34,7 @@ SerialPort::SerialPort(const char* id, const int speed, const std::string& name)
     serial_publisher = this->create_publisher<my_interfaces::msg::RobotStatus>("/serial/robotinfo",10);
     timer_ = this->create_wall_timer(std::chrono::milliseconds(1), std::bind(&SerialPort::receive_thread, this));
     this->PortInit();
-    data_sub_ = this->create_subscription<my_interfaces::msg::SendData>("/predictor/send_data", 10,\
+    data_sub_ = this->create_subscription<my_interfaces::msg::SendData>("/predictor/send_data", rclcpp::SensorDataQoS(),\
      std::bind(&SerialPort::data_send, this, std::placeholders::_1));
 }
 /*************************************************

@@ -4,9 +4,9 @@
 Predictor::Predictor(const std::string& node_name) : rclcpp::Node(node_name){
     
     RCLCPP_INFO(this->get_logger(), "This is %s",node_name.c_str());
-    armor_sub_ = this->create_subscription<my_interfaces::msg::Armor>("/detector/cam_point", 10, \
+    armor_sub_ = this->create_subscription<my_interfaces::msg::Armor>("/detector/cam_point", rclcpp::SensorDataQoS(), \
     std::bind(&Predictor::predict_callback, this, std::placeholders::_1));
-    data_pub_ = this->create_publisher<my_interfaces::msg::SendData>("/predictor/send_data", 10);
+    data_pub_ = this->create_publisher<my_interfaces::msg::SendData>("/predictor/send_data", rclcpp::SensorDataQoS());
 
     anglesolver = std::make_unique<AngleSolver>();
     pitch_last = dis_last = yaw_last = 0;
@@ -43,6 +43,7 @@ void Predictor::reset() {
 }
 
 void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor> armor_msg_){
+    
     double time_stamp = armor_msg_->time_stamp;
     cv::Point3f cam = cv::Point3f(armor_msg_->cam_point.x, armor_msg_->cam_point.y, armor_msg_->cam_point.z);
     double pitch, yaw, dis;
@@ -141,7 +142,7 @@ void Predictor::predict_callback(const std::shared_ptr<my_interfaces::msg::Armor
 
 
         auto cam_pred = anglesolver->abs2cam(abs_pred,robot_);
-        anglesolver->getAngle_nofix(cam,pitch,yaw, dis);
+        anglesolver->getAngle_nofix(cam_pred,pitch,yaw, dis);
 
 
         // if armor continue check

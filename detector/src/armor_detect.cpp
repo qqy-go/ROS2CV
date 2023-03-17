@@ -19,7 +19,7 @@ ArmorDetect::ArmorDetect(const std::string& name) : Node(name){
         camerainfo_sub_.reset();
      });
    
-    campoint_pub_ = this->create_publisher<my_interfaces::msg::Armor>("/detector/cam_point",10);
+    campoint_pub_ = this->create_publisher<my_interfaces::msg::Armor>("/detector/cam_point",rclcpp::SensorDataQoS());
 
     image_sub_ = std::make_shared<message_filters::Subscriber<sensor_msgs::msg::Image>>(this,"/camera/image_raw",rmw_qos_profile_sensor_data);
     robot_sub_ = std::make_shared<message_filters::Subscriber<my_interfaces::msg::RobotStatus>>(this,"/serial/robotinfo");
